@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PokeDex</title>
+<link rel="stylesheet" href="./public/styles.css">
+<link href="https://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/pokemon-fire-red" rel="stylesheet">
+
+</head>
+<body class="container" >
+    <h1>Pokedex index</h1>
+<div class ="main-div">
+    <!-- this for loop goes through the length of the pokemon object that i have and gets the names from it.  -->
+        <% for (let i=0; i < pokeDex.length; i++){ %> 
+            <li>
+                
+                <a href="/pokemon/<%=i%>">
+                    <%=pokeDex[i].name %>
+                </a>
+                
+                <form action="/pokemon/<%= i %>?_method=DELETE" method="POST">
+                    <!-- overrides post as a delete because we can only send post or get methods  -->
+                    <input type="submit" value="DELETE" />
+                </form>
+                <a href="/pokemon/<%= i %>/edit">edit</a>
+        
+                <!-- editing link ^ -->
+            </li>
+            <% } %>
+</div>
+</body>
+</html>

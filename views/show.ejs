@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PokeDex</title>
+<link rel="stylesheet" href="./public/styles.css">
+<link href="https://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/pokemon-fire-red" rel="stylesheet">
+
+</head>
+
+<body>
+    <h1>PokeDex Display</h1>
+    This Pokemon is <%= pokeDex.name %> <br>
+    <img src="<%= pokeDex.img %>"><br>
+    Hp based stats <%=pokeDex.stats.hp%> <br>
+    Attack based stats <%=pokeDex.stats.attack%> <br>
+    Defence based stats <%=pokeDex.stats.defence%> <br>
+    Spk ATT based stats <%=pokeDex.stats.spattack%> <br>
+    Spk DEF based stats <%=pokeDex.stats.spdefence%> <br>
+    Speeed based stats <%=pokeDex.stats.speed%> <br>
+<!-- there may be a need for a .jpg incasee image dont render later  -->
+
+        <h4>
+             <a href="/pokemon">Back to Gen I index</a>
+             <a href="/pokemon/new">Saw something New? or caught something? log it here</a>
+        </h4>
+</body>
+
+</html>

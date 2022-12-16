@@ -1,0 +1,72 @@
+/* h1 {
+    color: #fdfe00;
+    border: groove;
+    border-color: #2a75bb;
+    -webkit-text-stroke: 1px #3B4CCA;
+    font-family: 'Pokemon Solid', sans-serif;
+}
+ */
+body {
+    background-color: #FF9E9E;
+    font-family: 'Pokemon Fire Red', sans-serif;
+    display: flex;
+    flex-direction: row;
+   justify-content: space-between;
+
+}
+ .container {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+ }
+
+ h1 {
+    color: #fdfe00;
+        border: groove;
+        border-color: #2a75bb;
+        -webkit-text-stroke: 1px #3B4CCA;
+        font-family: 'Pokemon Solid', sans-serif;
+        border-width: 2px;
+ }
+
+.main-div{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    grid-gap: 3px; 
+    flex-direction: column;
+
+}
+ li {
+     display: flex;
+    flex-direction: column;
+     align-items: center;
+     font-family: "Pokemon Fire Red";
+     font-size: 1em;
+     color:#2a75bb;
+    cursor: pointer;
+
+ }
+
+ a {
+     color: black;
+     
+ }
+
+ form {
+     margin-left: 1em;
+ }
+
+ input[type="submit"] {
+     background-color: #2a75bb;
+     border: none;
+     color: white;
+     font-family: "Pokemon Fire Red";
+     font-size: 1em;
+     padding: 0.5em 1em;
+     cursor: pointer;
+ }
+
+ input[type="submit"]:hover {
+     background-color: #fdfe00;
+     color: black;
+ }
