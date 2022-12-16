@@ -46,11 +46,14 @@ body {
     cursor: pointer;
 
  }
-
+#hovered:hover{
+  opacity:1;
+}
  a {
      color: black;
      
  }
+ 
 
  form {
      margin-left: 1em;

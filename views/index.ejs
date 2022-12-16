@@ -19,6 +19,7 @@
                 
                 <a href="/pokemon/<%=i%>">
                     <%=pokeDex[i].name %>
+                    <img id="hovered" src="<%= pokeDex.img %>">
                 </a>
                 
                 <form action="/pokemon/<%= i %>?_method=DELETE" method="POST">
