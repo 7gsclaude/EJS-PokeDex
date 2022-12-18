@@ -5,7 +5,6 @@ const pokemon = require("./models/pokemon.js");
 const port = 3000;
 const methodOverride = require("method-override");
 
-
 ///mounting middleware used to keep the site running. 
 app.use(express.urlencoded({ extended: false })); //this returns middleware and only looks at requests
 app.use(methodOverride("_method")); //this middleware install allows us to use a post as a delete
@@ -49,51 +48,67 @@ app.delete("/pokemon/:indexOfPokemonArray", (req, res) => {
 
 //u is for Update were just updating tthe obecjts of the array 
 app.put('/pokemon/:indexOfPokemonArray', (req, res) => {
-    // if (req.body.readyToEat === "on") {
-    //    req.body.readyToEat = true ////// need this for if i will use a checkbox later
-    // } else {
-    //     req.body.readyToEat = false
-    // }
-    pokemon[req.params.indexOfPokemonArray] = req.body 
-    res.redirect('/pokemon')
-    //what is req.body req. the array object FRuits is now in the fruits array
+  // if (req.body.readyToEat === "on") {
+  //    req.body.readyToEat = true ////// need this for if i will use a checkbox later
+  // } else {
+  //     req.body.readyToEat = false
+  // }
+  let stats = {
+    hp: req.body.hp,
+    attack: req.body.attack,
+    defense: req.body.defense,
+    spattack: req.body.spattack,
+    spdefense: req.body.spdefense,
+    speed: req.body.speed,
+  };
+  let editedPokemon = {
+    name: req.body.name,
+    img: req.body.img,
+    type: req.body.type,
+    stats,
+  };
+  pokemon[req.params.id] = editedPokemon; //updated
+  
+  // pokemon[req.params.indexOfPokemonArray] = req.body;
+  res.redirect("/pokemon");
+  //what is req.body req. the array object FRuits is now in the fruits array
 } )
 
 
 ////create
-app.post("/pokemon", (req, res) => { //this is the line that will post to the url 
-//   if (req.body.readyToEat === "on") {
-//     req.body.readyToEat = true;
-//   } else {
-//     req.body.readyToEat = false; ////// if i want to add a checkbox latere i need to keep this logic 
-//   }
+app.post("/pokemon", (req, res) => {
+  //this is the line that will post to the url
+  //   if (req.body.readyToEat === "on") {
+  //     req.body.readyToEat = true;
+  //   } else {
+  //     req.body.readyToEat = false; ////// if i want to add a checkbox latere i need to keep this logic
+  //   }
+  let stats = {
+    hp: req.body.hp,
+    attack: req.body.attack,
+    defense: req.body.defense,
+    spattack: req.body.spattack,
+    spdefense: req.body.spdefense,
+    speed: req.body.speed,
+  };
+  let editedPokemon = {
+    name: req.body.name,
+    img: req.body.img,
+    type: req.body.type,
+    stats,
+  };
+  pokemon[req.params.id] = editedPokemon; //updated
   //creates
   console.log(req.body);
   // res.send("data recieved")
-  pokemon.push(req.body); //pushes info into body of my first pokemon page as specifieed below
+  pokemon.push(); //pushes info into body of my first pokemon page as specifieed below ../// //edited pushess edited pokemon
   res.redirect("/pokemon"); //sends
 }); 
-
-// let stats = {
-//     hp: req.body.hp,
-//     attack: req.body.attack,
-//     defense: req.body.defense,
-//     spattack: req.body.spattack,
-//     spdefense: req.body.spdefense,
-//     speed: req.body.speed
-//   }                                input thhihs in to update and create to createa  database for the editor to reference from 
-//   let editedPokemon = {
-//     name: req.body.name,
-//     img: req.body.img,
-//     type: req.body.type,
-//     stats
-//   }
-//   Pokemon[req.params.id] = editedPokemon //updated
 
 
 
 ////edit
-app.get('/pokemon/;indexOfPokeDexArray', (req, res) => {
+app.get('/pokemon/:indexOfPokeDexArray/edit', (req, res) => {
     res.render('edit.ejs', {
         pokeDex: pokemon[req.params.indexOfPokeDexArray],
         pokeIndex: req.params.indexOfPokeDexArray,

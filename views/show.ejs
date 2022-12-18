@@ -14,8 +14,8 @@
 
 <body>
     <h1>PokeDex Display</h1>
-    This Pokemon is <%= pokeDex.name %> <br>
-    <img src="<%= pokeDex.img %>"><br>
+    This Pokemon is <%=pokeDex.name%> <br>
+    <img src="<%=pokeDex.img%>"><br> i wrote .jpeg but you can probably remove it 
     Hp based stats <%=pokeDex.stats.hp%> <br>
     Attack based stats <%=pokeDex.stats.attack%> <br>
     Defence based stats <%=pokeDex.stats.defence%> <br>
@@ -25,7 +25,8 @@
 <!-- there may be a need for a .jpg incasee image dont render later  -->
 
         <h4>
-             <a href="/pokemon">Back to Gen I index</a>
+             <a href="/pokemon">Back to Gen I index</a> <br>
+
              <a href="/pokemon/new">Saw something New? or caught something? log it here</a>
         </h4>
 </body>
