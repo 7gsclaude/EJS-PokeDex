@@ -15,20 +15,20 @@
 <div class ="main-div">
     <!-- this for loop goes through the length of the pokemon object that i have and gets the names from it.  -->
         <% for (let i=0; i < pokeDex.length; i++){ %> 
-            <li>
+            <li> 
                 
                 <a href="/pokemon/<%=i%>">
                     <%=pokeDex[i].name %>
-                    <img src="<%=pokeDex.img%>.jpg">
+                    <img src="<%=pokeDex[i].img%>" alt="">
                 </a>
-                
+             
                 <form action="/pokemon/<%= i %>?_method=DELETE" method="POST">
                     <!-- overrides post as a delete because we can only send post or get methods  -->
                     <input type="submit" value="DELETE" />
                 </form>
                 <a href="/pokemon/<%= i %>/edit">edit</a>
         
-                <!-- editing link ^ -->
+                <!-- editing link, i also works in this situation since im going through arrays ^ -->
             </li>
             <% } %>
 </div>
